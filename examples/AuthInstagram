@@ -2,14 +2,16 @@
 use Mojolicious::Lite;
 use Config::Pit;
 
-my $site = 'Twitter';
+print STDERR "[NOTICE] should be used in domains other than 'localhost' (e.g. local.example.com)\n";
+
+my $site = 'Instagram';
 helper site => sub { $site };
 
 my $pit = pit_get(
     lc($site),
     require => {
-        key    => "Twitter consumer key",
-        secret => "Twitter consumer secret",
+        key    => "Instagram Client ID",
+        secret => "Instagram Client Secret",
     }
 );
 
@@ -18,10 +20,9 @@ plugin 'Mojolicious::Plugin::Web::Auth',
     key         => $pit->{key},
     secret      => $pit->{secret},
     on_finished => sub {
-        my ($c, $access_token, $access_secret, $account_info) = @_;
-        $c->session('access_token'  => $access_token);
-        $c->session('access_secret' => $access_secret);
-        $c->session('account_info'  => { screen_name => $account_info->{screen_name} } );
+        my ($c, $access_token, $account_info) = @_;
+        $c->session('access_token' => $access_token);
+        $c->session('account_info' => $account_info);
         return $c->redirect_to('index');
     };
 
@@ -51,7 +52,7 @@ __DATA__
 
 @@ index.html.ep
 % layout 'default';
-Hello <%= session('account_info')->{screen_name} %>@<%= site %>
+Hello <%= session('account_info')->{data}->{username} %>@<%= site %>
 <form method="post" action="/logout">
 <button type="submit">Logout</button>
 </form>

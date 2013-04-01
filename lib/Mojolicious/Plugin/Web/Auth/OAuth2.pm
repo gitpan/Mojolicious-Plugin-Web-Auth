@@ -12,6 +12,7 @@ has 'user_info';
 has 'authorize_url';
 has 'access_token_url';
 has 'user_info_url';
+has 'response_type';
 has moniker => sub { die 'override me' };
 
 sub _ua {
@@ -29,6 +30,7 @@ sub auth_uri {
     $url->query->param( client_id    => $self->key );
     $url->query->param( redirect_uri => $callback_uri );
     $url->query->param( scope        => $self->scope ) if ( defined $self->scope );
+    $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
     return $url->to_string;
 }
@@ -48,7 +50,10 @@ sub callback {
         grant_type    => 'authorization_code',
     };
 
-    my $tx = $self->_ua->post_form( $self->access_token_url => $params );
+    my $tx = ( $Mojolicious::VERSION < 3.85)
+        ? $self->_ua->post_form( $self->access_token_url => $params ) # Mojo::UserAgent::post_form is deprecated from version 3.85
+        : $self->_ua->post( $self->access_token_url => form => $params );
+
     (my $res = $tx->success ) or do {
         return $callback->{on_error}->( $tx->res->body );
     };

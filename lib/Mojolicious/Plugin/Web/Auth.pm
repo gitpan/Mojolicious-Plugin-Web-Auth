@@ -1,7 +1,7 @@
 package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -83,6 +83,10 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
   # e.g.)
   # /auth/twitter/authenticate
   # /auth/facebook/authenticate
+  ### default callback endpoint: /auth/{moniker}/callback
+  # e.g.)
+  # /auth/twitter/callback
+  # /auth/facebook/callback
 
 =head1 DESCRIPTION
 

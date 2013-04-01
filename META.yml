@@ -27,4 +27,4 @@ requires:
   WebService::Dropbox: 1.01
 resources:
   repository: git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git
-version: 0.01
+version: 0.02
