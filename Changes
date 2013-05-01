@@ -1,4 +1,10 @@
-Revision history for Perl extension Mojolicious::Plugin::Web::Auth
+Revision history for Mojolicious-Plugin-Web-Auth
+
+0.03  2013-05-01 18:21:38 JST
+        - removed the dependancy of Net::Twitter::Lite
+        - removed the dependancy of WebService::Dropbox
+        - millaize
+        - updated the document
 
 0.02
         - added  Mojolicious::Plugin::Web::Auth::Site::Instagram
