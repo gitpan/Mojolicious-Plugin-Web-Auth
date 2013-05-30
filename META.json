@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "IO::Socket::SSL" : "1.77",
             "Mojolicious" : "3.02",
             "Net::OAuth" : "0.28",
             "perl" : "5.008005"
@@ -59,7 +60,7 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.03",
+   "version" : "0.04",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <hayato.imai@gmail.com>",
