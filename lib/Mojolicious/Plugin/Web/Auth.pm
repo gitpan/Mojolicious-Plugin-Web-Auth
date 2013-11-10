@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -188,6 +188,15 @@ This is a callback when authentication was errored.
 =head1 AUTHOR
 
 hayajo E<lt>hayajo@cpan.orgE<gt>
+
+=head1 COPYRIGHT
+
+Copyright 2013- hayajo
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
