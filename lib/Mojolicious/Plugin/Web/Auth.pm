@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -188,6 +188,16 @@ This is a callback when authentication was errored.
 =head1 AUTHOR
 
 hayajo E<lt>hayajo@cpan.orgE<gt>
+
+=head1 CONTRIBUTORS
+
+Many thanks to the contributors for their work.
+
+=over 4
+
+=item FAYLAND
+
+=back
 
 =head1 COPYRIGHT
 

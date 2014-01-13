@@ -37,9 +37,9 @@ sub callback {
         grant_type    => 'authorization_code',
     };
 
-    my $tx = ( $Mojolicious::VERSION < 3.85)
-        ? $self->_ua->post_form( $self->access_token_url => $params ) # Mojo::UserAgent::post_form is deprecated from version 3.85
-        : $self->_ua->post( $self->access_token_url => form => $params );
+    my $tx = ( $Mojolicious::VERSION >= 3.85)
+        ? $self->_ua->post( $self->access_token_url => form => $params )
+        : $self->_ua->post_form( $self->access_token_url => $params ); # Mojo::UserAgent::post_form is deprecated from version 3.85
 
     (my $res = $tx->success ) or do {
         return $callback->{on_error}->( $tx->res->body );
@@ -67,9 +67,20 @@ sub callback {
 sub _ua {
     my $self = shift;
 
-    $self->{_ua} = Mojo::UserAgent->new(
-        name => "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION"
-    ) unless ( $self->{_ua} );
+    unless ( $self->{_ua} ) {
+        $self->{_ua} = Mojo::UserAgent->new();
+
+        my $user_agent = "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION";
+        if ($Mojolicious::VERSION >= 4.50) {
+            $self->{_ua}->transactor->name($user_agent);
+            $self->{_ua}->proxy->detect; # supports ENV proxies
+        } else {
+            # Mojo::UserAgent#name is deprecated from version 4.50
+            $self->{_ua}->name($user_agent);
+            # Mojo::UserAgent#detect_proxy is deprecated from version 4.50
+            $self->{_ua}->detect_proxy();
+        }
+    }
 
     return $self->{_ua};
 }
