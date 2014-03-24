@@ -37,7 +37,7 @@ DESCRIPTION
     Mojolicious::Plugin::Web::Auth is authentication plugin for Mojolicious.
 
 METHODS
-    Mojolicious::Plugin::Directory inherits all methods from
+    Mojolicious::Plugin::Web::Auth inherits all methods from
     Mojolicious::Plugin.
 
 OPTIONS
@@ -109,6 +109,7 @@ CONTRIBUTORS
     Many thanks to the contributors for their work.
 
     FAYLAND
+    uzulla@github
 
 COPYRIGHT
     Copyright 2013- hayajo

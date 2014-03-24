@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -96,7 +96,7 @@ L<Mojolicious::Plugin::Web::Auth> is authentication plugin for L<Mojolicious>.
 
 =head1 METHODS
 
-L<Mojolicious::Plugin::Directory> inherits all methods from L<Mojolicious::Plugin>.
+L<Mojolicious::Plugin::Web::Auth> inherits all methods from L<Mojolicious::Plugin>.
 
 =head1 OPTIONS
 
@@ -196,6 +196,8 @@ Many thanks to the contributors for their work.
 =over 4
 
 =item FAYLAND
+
+=item uzulla@github
 
 =back
 
