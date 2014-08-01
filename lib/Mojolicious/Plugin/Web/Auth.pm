@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -60,7 +60,7 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 =head1 SYNOPSIS
 
   # Mojolicious
-  $self->plugin('Web::Auth'
+  $self->plugin('Web::Auth',
       module      => 'Twitter',
       key         => 'Twitter consumer key',
       secret      => 'Twitter consumer secret',
@@ -131,6 +131,11 @@ optional. OAuth 2.0 only.
           ...
       };
 
+=head2 C<validate_state>
+
+optinal. OAuth 2.0 only. default value is 1, see L<http://tools.ietf.org/html/rfc6819#section-5.3.5>
+
+
 =head2 C<on_finished>
 
   # Mojolicious::Lite
@@ -198,6 +203,10 @@ Many thanks to the contributors for their work.
 =item FAYLAND
 
 =item uzulla@github
+
+=item sachinjsk@github
+
+=item mala@github
 
 =back
 

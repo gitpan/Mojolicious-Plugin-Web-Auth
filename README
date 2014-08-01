@@ -3,7 +3,7 @@ NAME
 
 SYNOPSIS
       # Mojolicious
-      $self->plugin('Web::Auth'
+      $self->plugin('Web::Auth',
           module      => 'Twitter',
           key         => 'Twitter consumer key',
           secret      => 'Twitter consumer secret',
@@ -68,6 +68,10 @@ OPTIONS
               ...
           };
 
+  "validate_state"
+    optinal. OAuth 2.0 only. default value is 1, see
+    <http://tools.ietf.org/html/rfc6819#section-5.3.5>
+
   "on_finished"
       # Mojolicious::Lite
       plugin 'Web::Auth',
@@ -110,6 +114,8 @@ CONTRIBUTORS
 
     FAYLAND
     uzulla@github
+    sachinjsk@github
+    mala@github
 
 COPYRIGHT
     Copyright 2013- hayajo
