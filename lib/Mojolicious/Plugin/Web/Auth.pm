@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -31,6 +31,7 @@ sub register {
         my $c    = shift;
         my $path = $c->req->url->path;
         if ( $path->contains($authenticate_path) ) {
+            $c->req->url->base->scheme('https') if( $c->req->headers->header('x-forwarded-proto') eq 'https');
             my $callback = $c->req->url->path($callback_path)->to_abs;
             return $c->redirect_to( $auth->auth_uri( $c, $callback ) );
         }
@@ -207,6 +208,8 @@ Many thanks to the contributors for their work.
 =item sachinjsk@github
 
 =item mala@github
+
+=item shohey1226@github
 
 =back
 

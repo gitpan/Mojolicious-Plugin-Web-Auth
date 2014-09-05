@@ -3,15 +3,15 @@ abstract: 'Authentication plugin for Mojolicious'
 author:
   - 'hayajo <hayajo@cpan.org>'
 build_requires:
-  Test::More: 0.88
+  Test::More: '0.88'
 configure_requires:
-  Module::Build::Tiny: 0.030
+  Module::Build: '0.38'
 dynamic_config: 0
-generated_by: 'Dist::Milla version v1.0.4, Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Minilla/v2.1.1, CPAN::Meta::Converter version 2.142060'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Mojolicious-Plugin-Web-Auth
 no_index:
   directory:
@@ -21,22 +21,46 @@ no_index:
     - share
     - eg
     - examples
+    - author
+    - builder
+provides:
+  Mojolicious::Plugin::Web::Auth:
+    file: lib/Mojolicious/Plugin/Web/Auth.pm
+    version: '0.10'
+  Mojolicious::Plugin::Web::Auth::Base:
+    file: lib/Mojolicious/Plugin/Web/Auth/Base.pm
+  Mojolicious::Plugin::Web::Auth::OAuth:
+    file: lib/Mojolicious/Plugin/Web/Auth/OAuth.pm
+  Mojolicious::Plugin::Web::Auth::OAuth2:
+    file: lib/Mojolicious/Plugin/Web/Auth/OAuth2.pm
+  Mojolicious::Plugin::Web::Auth::Site::Dropbox:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Dropbox.pm
+  Mojolicious::Plugin::Web::Auth::Site::Facebook:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Facebook.pm
+  Mojolicious::Plugin::Web::Auth::Site::Github:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Github.pm
+  Mojolicious::Plugin::Web::Auth::Site::Google:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Google.pm
+  Mojolicious::Plugin::Web::Auth::Site::Instagram:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Instagram.pm
+  Mojolicious::Plugin::Web::Auth::Site::Twitter:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Twitter.pm
 requires:
-  IO::Socket::SSL: 1.77
-  Mojolicious: 3.02
-  Net::OAuth: 0.28
-  perl: 5.008005
+  IO::Socket::SSL: '1.77'
+  Mojolicious: '3.02'
+  Net::OAuth: '0.28'
+  perl: '5.008005'
 resources:
   bugtracker: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth/issues
   homepage: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth
-  repository: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git
-version: 0.09
+  repository: git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git
+version: '0.10'
 x_contributors:
-  - 'Fayland Lam <fayland@gmail.com>'
-  - 'Hayato Imai <hayato.imai@gmail.com>'
-  - 'Sachin Sebastian <sachinjsk@users.noreply.github.com>'
   - 'hayato imai <hayato.imai@global-netcore.jp>'
-  - 'hayato imai <hayato.imai@gmail.com>'
   - 'hayato imai <imaiha@imaiha-dev.localdomain>'
-  - 'mala <github@ma.la>'
+  - 'Fayland Lam <fayland@gmail.com>'
   - 'uzulla <uzulla@himitsukichi.com>'
+  - 'Sachin Sebastian <sachinjsk@users.noreply.github.com>'
+  - 'mala <github@ma.la>'
+  - 'Shohei Kameda <shoheik@cpan.org>'
+  - 'Hayato Imai <hayato.imai@gmail.com>'
