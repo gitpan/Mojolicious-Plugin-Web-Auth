@@ -57,7 +57,7 @@
    "provides" : {
       "Mojolicious::Plugin::Web::Auth" : {
          "file" : "lib/Mojolicious/Plugin/Web/Auth.pm",
-         "version" : "0.10"
+         "version" : "0.11"
       },
       "Mojolicious::Plugin::Web::Auth::Base" : {
          "file" : "lib/Mojolicious/Plugin/Web/Auth/Base.pm"
@@ -85,6 +85,9 @@
       },
       "Mojolicious::Plugin::Web::Auth::Site::Twitter" : {
          "file" : "lib/Mojolicious/Plugin/Web/Auth/Site/Twitter.pm"
+      },
+      "Mojolicious::Plugin::Web::Auth::Site::Yandex" : {
+         "file" : "lib/Mojolicious/Plugin/Web/Auth/Site/Yandex.pm"
       }
    },
    "release_status" : "stable",
@@ -94,11 +97,11 @@
       },
       "homepage" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
       "repository" : {
-         "url" : "git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git",
+         "url" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
@@ -107,6 +110,7 @@
       "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
       "mala <github@ma.la>",
       "Shohei Kameda <shoheik@cpan.org>",
+      "Pavel Bashinsky <levonet@gmail.com>",
       "Hayato Imai <hayato.imai@gmail.com>"
    ]
 }

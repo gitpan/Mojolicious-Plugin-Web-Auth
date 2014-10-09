@@ -9,6 +9,7 @@ has 'scope';
 has 'response_type';
 has 'validate_state' => 1;
 has 'state_generator';
+has 'authorize_header';
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -38,7 +39,8 @@ sub callback {
         return $callback->{on_error}->( $error, $error_description );
     }
     my $code = $c->param('code') or die "Cannot get a 'code' parameter";
-    $c->req->url->base->scheme('https') if ($c->req->headers->header('x-forwarded-proto') eq 'https');
+    my $forwarded_proto = $c->req->headers->header('x-forwarded-proto');
+    $c->req->url->base->scheme('https') if (defined $forwarded_proto && $forwarded_proto eq 'https');
 
     if ( $self->validate_state ) {
         my $state = delete $c->session->{oauth2_state};
@@ -72,8 +74,11 @@ sub callback {
     my @args = ($access_token);
     if ( $self->user_info ) {
         my $url = Mojo::URL->new( $self->user_info_url );
-        $url->query->param( access_token => $access_token );
-        my $tx = $self->_ua->get( $url->to_abs );
+        $url->query->param( access_token => $access_token ) unless ( defined $self->authorize_header );
+        my $headers = defined $self->authorize_header
+            ? { 'Authorization' => $self->authorize_header.' '.$access_token }
+            : { };
+        my $tx = $self->_ua->get( $url->to_abs => $headers );
         ( my $res = $tx->success )
             or return $callback->{on_error}->( sprintf( '%d %s', $tx->res->code, $tx->res->default_message ) );
         push @args, $res->json;

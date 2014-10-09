@@ -11,6 +11,7 @@ examples/AuthGithub
 examples/AuthGoogle
 examples/AuthInstagram
 examples/AuthTwitter
+examples/AuthYandex
 lib/Mojolicious/Plugin/Web/Auth.pm
 lib/Mojolicious/Plugin/Web/Auth/Base.pm
 lib/Mojolicious/Plugin/Web/Auth/OAuth.pm
@@ -21,6 +22,7 @@ lib/Mojolicious/Plugin/Web/Auth/Site/Github.pm
 lib/Mojolicious/Plugin/Web/Auth/Site/Google.pm
 lib/Mojolicious/Plugin/Web/Auth/Site/Instagram.pm
 lib/Mojolicious/Plugin/Web/Auth/Site/Twitter.pm
+lib/Mojolicious/Plugin/Web/Auth/Site/Yandex.pm
 t/00_compile.t
 xt/01_podspell.t
 xt/02_perlcritic.t

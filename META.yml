@@ -26,7 +26,7 @@ no_index:
 provides:
   Mojolicious::Plugin::Web::Auth:
     file: lib/Mojolicious/Plugin/Web/Auth.pm
-    version: '0.10'
+    version: '0.11'
   Mojolicious::Plugin::Web::Auth::Base:
     file: lib/Mojolicious/Plugin/Web/Auth/Base.pm
   Mojolicious::Plugin::Web::Auth::OAuth:
@@ -45,6 +45,8 @@ provides:
     file: lib/Mojolicious/Plugin/Web/Auth/Site/Instagram.pm
   Mojolicious::Plugin::Web::Auth::Site::Twitter:
     file: lib/Mojolicious/Plugin/Web/Auth/Site/Twitter.pm
+  Mojolicious::Plugin::Web::Auth::Site::Yandex:
+    file: lib/Mojolicious/Plugin/Web/Auth/Site/Yandex.pm
 requires:
   IO::Socket::SSL: '1.77'
   Mojolicious: '3.02'
@@ -53,8 +55,8 @@ requires:
 resources:
   bugtracker: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth/issues
   homepage: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth
-  repository: git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git
-version: '0.10'
+  repository: https://github.com/hayajo/Mojolicious-Plugin-Web-Auth
+version: '0.11'
 x_contributors:
   - 'hayato imai <hayato.imai@global-netcore.jp>'
   - 'hayato imai <imaiha@imaiha-dev.localdomain>'
@@ -63,4 +65,5 @@ x_contributors:
   - 'Sachin Sebastian <sachinjsk@users.noreply.github.com>'
   - 'mala <github@ma.la>'
   - 'Shohei Kameda <shoheik@cpan.org>'
+  - 'Pavel Bashinsky <levonet@gmail.com>'
   - 'Hayato Imai <hayato.imai@gmail.com>'
